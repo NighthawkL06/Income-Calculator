@@ -1,21 +1,33 @@
 const employeesArray = [];
 const collectEmployees = function() {
-  const employee = [];
-  for (let i = 0; i < 3; i++) { 
-    const firstName = window.prompt(`Please enter Employee ${i + 1}'s first name.`);
-    const lastName = window.prompt(`Please enter Employee ${i + 1}'s last name.`);
-    let salary = parseFloat(window.prompt(`Please enter Employee ${i + 1}'s salary.`));
+  const employees = [];
+  // for (let i = 0; i < 3; i++) { 
+  //   const firstName = window.prompt(`Please enter Employee ${i + 1}'s first name.`);
+  //   const lastName = window.prompt(`Please enter Employee ${i + 1}'s last name.`);
+  //   let salary = parseFloat(window.prompt(`Please enter Employee ${i + 1}'s salary.`));
+  //   const employee = {
+  //     firstName: firstName,
+  //     lastName: lastName,
+  //     salary: salary
+  // };
+
+  let x = true;
+  while (x) {
+    const firstName = window.prompt(`Please enter Employee first name.`);
+    const lastName = window.prompt(`Please enter Employee last name.`);
+    let salary = parseFloat(window.prompt(`Please enter Employee salary.`));
     const employee = {
       firstName: firstName,
       lastName: lastName,
       salary: salary
-  };
-
-  employees.push(employee);
+    }
+    employees.push(employee);
+    x = confirm("Did you want to add another employee?");
 }
+
 
 return employees;
-}
+} 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   let totalSalary = 0;
@@ -24,7 +36,7 @@ const displayAverageSalary = function(employeesArray) {
     totalSalary += employeesArray[i].salary;
   }
 
-  const averageSalary = totalSalary / employeesArray.length;
+  const averageSalary = totalSalary / employeesArray.length; // array length is number of items in array
 
   console.log(`Average Salary: ${averageSalary.toLocaleString("en-US", {
     style: "currency",
@@ -38,6 +50,8 @@ const getRandomEmployee = function(employeesArray) {
 
   console.log("Random Employee:");
   console.table(randomEmployee);
+
+  
 };
 //   ====================
 //   STARTER CODE
